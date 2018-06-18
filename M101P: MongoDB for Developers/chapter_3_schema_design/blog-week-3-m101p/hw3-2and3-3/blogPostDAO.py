@@ -54,6 +54,7 @@ class BlogPostDAO:
         # now insert the post
         try:
             # XXX HW 3.2 Work Here to insert the post
+            self.posts.insert_one(post)
             print "Inserting the post"
         except:
             print "Error inserting post"
@@ -67,6 +68,7 @@ class BlogPostDAO:
         cursor = iter(())  # Using an empty itable for a placeholder so blog compiles before you make your changes
 
         # XXX HW 3.2 Work here to get the posts
+        cursor = self.posts.find()
 
         l = []
 
@@ -90,6 +92,8 @@ class BlogPostDAO:
 
         post = None
         # XXX 3.2 Work here to retrieve the specified post
+
+        post = self.posts.find_one({ "permalink": permalink })
 
         if post is not None:
             # fix up date
