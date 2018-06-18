@@ -8,11 +8,13 @@ db = connection.school
 students = db.students
 
 doc = students.find().sort("_id", 1)
+counter = 0
 
 for student in doc:
 	student_id = student['_id']
 	scores = student['scores']
 	lowest = 100
+
 
 	for each in scores:
 		if each['type'] == "homework" and each['score'] < lowest:
@@ -21,4 +23,7 @@ for student in doc:
 	# Remove lowest score from the list
 	scores.remove(lowest)
 
-	students.update({'_id':student_id}, {"$set": student}, upsert=False)
+	if students.update({'_id':student_id}, {"$set": student}, upsert=False):
+		counter += 1
+
+print("Number of items updated", counter)
