@@ -14,12 +14,11 @@ for student in doc:
 	scores = student['scores']
 	lowest = 100
 
-	print(student_id)
-
 	for each in scores:
 		if each['type'] == "homework" and each['score'] < lowest:
-			lowest = each['score']
+			lowest = each
 
-	print scores
-	print lowest
-	print "============"
+	# Remove lowest score from the list
+	scores.remove(lowest)
+
+	students.update({'_id':student_id}, {"$set": student}, upsert=False)
