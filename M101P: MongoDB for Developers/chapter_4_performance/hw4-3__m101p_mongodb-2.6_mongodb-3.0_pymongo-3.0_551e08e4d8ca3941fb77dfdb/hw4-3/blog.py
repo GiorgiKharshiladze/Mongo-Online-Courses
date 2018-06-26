@@ -67,6 +67,11 @@ def posts_by_tag(tag="notfound"):
     username = sessions.get_username(cookie)
 
     # even if there is no logged in user, we can show the blog
+    # ====================================================================================================
+    # As I saw in blogPostDAO.py, get_posts_by_tag method uses tag and date to sort blog posts,
+    # This is a good reason to create index on tag and date for each post
+    # Query: db.posts.createIndex({"tag":1, "date":1})
+    # ==========================================================================================
     l = posts.get_posts_by_tag(tag, 10)
 
     return bottle.template('blog_template', dict(myposts=l, username=username))
@@ -82,11 +87,11 @@ def show_post(permalink="notfound"):
     permalink = cgi.escape(permalink)
 
     print "about to query on permalink = ", permalink
-    # ==========================================================================
+    # ==========================================================================================
     # As I saw in blogPostDAO.py, get_post_by_permalink method uses permalink to sort blog posts,
     # This is a good reason to create index on permalink for each post
     # Query: db.posts.createIndex({"permalink":1})
-    # ==========================================================================
+    # ==========================================================================================
     post = posts.get_post_by_permalink(permalink)
 
     if post is None:
