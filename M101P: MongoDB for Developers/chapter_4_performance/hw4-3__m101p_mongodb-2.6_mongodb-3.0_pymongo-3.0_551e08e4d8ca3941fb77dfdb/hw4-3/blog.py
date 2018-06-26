@@ -82,6 +82,11 @@ def show_post(permalink="notfound"):
     permalink = cgi.escape(permalink)
 
     print "about to query on permalink = ", permalink
+    # ==========================================================================
+    # As I saw in blogPostDAO.py, get_post_by_permalink method uses permalink to sort blog posts,
+    # This is a good reason to create index on permalink for each post
+    # Query: db.posts.createIndex({"permalink":1})
+    # ==========================================================================
     post = posts.get_post_by_permalink(permalink)
 
     if post is None:
