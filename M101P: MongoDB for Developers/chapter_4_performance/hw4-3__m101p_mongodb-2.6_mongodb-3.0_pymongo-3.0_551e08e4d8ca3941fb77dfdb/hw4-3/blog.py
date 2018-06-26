@@ -48,6 +48,11 @@ def blog_index():
     username = sessions.get_username(cookie)
 
     # even if there is no logged in user, we can show the blog
+    # ==========================================================================
+    # As I saw in blogPostDAO.py, get_posts method uses date to sort blog posts,
+    # This is a good reason to create index on date for each post
+    # Query: db.posts.createIndex({"date":1})
+    # ==========================================================================
     l = posts.get_posts(10)
 
     return bottle.template('blog_template', dict(myposts=l, username=username))
