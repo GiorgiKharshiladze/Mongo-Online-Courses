@@ -1,0 +1,13 @@
+2018-07-10T16:40:57.705+0400 I CONTROL  [initandlisten] MongoDB starting : pid=2466 port=27017 dbpath=/data/rs1 64-bit host=Giorgis-MBP
+2018-07-10T16:40:57.705+0400 I CONTROL  [initandlisten] db version v3.6.5
+2018-07-10T16:40:57.705+0400 I CONTROL  [initandlisten] git version: a20ecd3e3a174162052ff99913bc2ca9a839d618
+2018-07-10T16:40:57.706+0400 I CONTROL  [initandlisten] OpenSSL version: OpenSSL 1.0.2o  27 Mar 2018
+2018-07-10T16:40:57.706+0400 I CONTROL  [initandlisten] allocator: system
+2018-07-10T16:40:57.707+0400 I CONTROL  [initandlisten] modules: none
+2018-07-10T16:40:57.707+0400 I CONTROL  [initandlisten] build environment:
+2018-07-10T16:40:57.707+0400 I CONTROL  [initandlisten]     distarch: x86_64
+2018-07-10T16:40:57.708+0400 I CONTROL  [initandlisten]     target_arch: x86_64
+2018-07-10T16:40:57.708+0400 I CONTROL  [initandlisten] options: { net: { port: 27017 }, processManagement: { fork: true }, replication: { oplogSizeMB: 64, replSet: "m101" }, storage: { dbPath: "/data/rs1", mmapv1: { smallFiles: true } }, systemLog: { destination: "file", path: "1.log" } }
+2018-07-10T16:40:57.708+0400 I STORAGE  [initandlisten] exception in initAndListen: IllegalOperation: Attempted to create a lock file on a read-only directory: /data/rs1, terminating
+2018-07-10T16:40:57.709+0400 I CONTROL  [initandlisten] now exiting
+2018-07-10T16:40:57.709+0400 I CONTROL  [initandlisten] shutting down with code:100
